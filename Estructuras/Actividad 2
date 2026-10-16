@@ -1,0 +1,37 @@
+edad_texto = input("Dime tu edad: ")
+
+if edad_texto.isdigit() == False:
+    print("Error: Pon numeros, no letras.")
+else:
+    edad = int(edad_texto)
+    
+    if edad < 0:
+        print("La edad no puede ser menos de cero.")
+    else:
+        dia_texto = input("Que dia de la semana es? ")
+        dia = dia_texto.lower().strip()
+        
+        es_3d = input("Es una pelicula 3D? (si/no): ")
+        es_3d = es_3d.lower().strip()
+
+        precio_base = 8
+        if edad < 12:
+            precio_base = 5
+        elif edad >= 65:
+            precio_base = 6
+
+        descuento = 0
+        if dia == "miercoles" or dia == "miércoles":
+            descuento = 1
+
+        extra_3d = 0
+        if es_3d == "si":
+            extra_3d = 2
+
+        total = precio_base - descuento + extra_3d
+
+        print("--- Tu entrada ---")
+        print("Precio por edad:", precio_base, "euros")
+        print("Descuento del miercoles:", descuento, "euros")
+        print("Extra por 3D:", extra_3d, "euros")
+        print("Total a pagar:", total, "euros")

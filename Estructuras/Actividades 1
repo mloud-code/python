@@ -1,0 +1,61 @@
+import random
+
+titular = "Mohamed Moussa"
+saldo = random.randint(0, 1000)
+activa = True
+
+print("Hola", titular)
+print("Tu saldo es de", saldo, "euros")
+
+op_texto = input("Que quieres hacer? (ingresar, retirar, abrir cuenta, cerrar cuenta, consultar): ")
+op = op_texto.lower().strip()
+
+if op == "ingresar":
+    cantidad_texto = input("Cuanto dinero? ")
+    cantidad = float(cantidad_texto)
+    if cantidad > 0:
+        saldo = saldo + cantidad
+        print("Bien. Dinero ingresado.")
+    else:
+        print("Error: tiene que ser mas de 0")
+
+elif op == "retirar":
+    cantidad_texto = input("Cuanto quieres sacar? ")
+    cantidad = float(cantidad_texto)
+    if cantidad > 0:
+        if cantidad <= saldo:
+            saldo = saldo - cantidad
+            print("Bien. Dinero retirado.")
+        else:
+            print("No tienes tanto dinero.")
+    else:
+        print("Error: la cantidad no vale.")
+
+elif op == "abrir cuenta":
+    if activa == True:
+        print("La cuenta ya esta abierta antes.")
+    else:
+        activa = True
+        print("Vale, cuenta abierta.")
+
+elif op == "cerrar cuenta":
+    if saldo == 0:
+        activa = False
+        print("Cuenta cerrada.")
+    else:
+        print("No se puede, tienes dinero dentro.")
+
+elif op == "consultar":
+    print("Nombre:", titular)
+    print("Dinero:", saldo)
+    if activa == True:
+        print("La cuenta esta activa")
+    else:
+        print("La cuenta esta cerrada")
+
+else:
+    print("No entiendo esa operacion.")
+
+print("--- Final ---")
+print("Saldo:", saldo)
+print("Activa:", activa)
