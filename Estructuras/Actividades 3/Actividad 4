@@ -1,0 +1,23 @@
+max_personas = 8
+dentro = 0
+
+while True:
+    accion = input("¿Qué hacemos? (entra, sale, fin): ")
+    
+    if accion == "fin":
+        print("Fin. Personas dentro:", dentro)
+        break
+        
+    elif accion == "entra":
+        if dentro < max_personas:
+            dentro = dentro + 1
+            print("Aforo:", dentro)
+        else:
+            print("Sala llena, no puede entrar")
+            
+    elif accion == "sale":
+        if dentro > 0:
+            dentro = dentro - 1
+            print("Aforo:", dentro)
+        else:
+            print("No hay nadie dentro")

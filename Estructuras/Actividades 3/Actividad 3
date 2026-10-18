@@ -1,0 +1,14 @@
+precio = 170
+total = 0
+
+while total < precio:
+    moneda = int(input("Mete moneda (10, 20, 50, 100): "))
+    
+    if moneda == 10 or moneda == 20 or moneda == 50 or moneda == 100:
+        total = total + moneda
+    else:
+        print("Esa moneda no vale")
+
+cambio = total - precio
+print("Producto entregado")
+print("Tu cambio es", cambio, "céntimos (", cambio / 100, "euros)")

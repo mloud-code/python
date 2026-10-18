@@ -1,0 +1,14 @@
+intentos = 3
+
+while intentos > 0:
+    codigo = input("Mete el código: ")
+    
+    if codigo == "4826":
+        print("Acceso autorizado")
+        break
+    else:
+        intentos = intentos - 1
+        if intentos == 0:
+            print("Acceso bloqueado")
+        else:
+            print("Mal. Te quedan", intentos, "intentos")

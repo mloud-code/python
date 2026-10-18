@@ -1,0 +1,58 @@
+import random
+
+saldo = random.randint(0, 1000)
+titular = "Mohamed Moussa"
+activa = True
+
+while True:
+    op = input("\nElige: ingresar, retirar, consultar, cerrar cuenta, abrir cuenta, salir\nOpción: ")
+    op = op.strip().lower()
+
+    if op == "salir":
+        if activa:
+            estado = "Activa"
+        else:
+            estado = "Cerrada"
+        print("Adiós.", titular, "| Saldo:", saldo, "€ | Estado:", estado)
+        break
+        
+    elif op == "ingresar":
+        if activa:
+            cant = float(input("Cuánto: "))
+            saldo = saldo + cant
+        else:
+            print("No se puede, cuenta cerrada")
+            
+    elif op == "retirar":
+        if activa:
+            cant = float(input("Cuánto sacas: "))
+            if cant <= saldo:
+                saldo = saldo - cant
+            else:
+                print("No hay suficiente dinero")
+        else:
+            print("No se puede, cuenta cerrada")
+            
+    elif op == "consultar":
+        if activa:
+            print("Titular:", titular, "- Saldo:", saldo, "€ - Cuenta activa")
+        else:
+            print("Titular:", titular, "- Saldo:", saldo, "€ - Cuenta cerrada")
+            
+    elif op == "cerrar cuenta":
+        if activa:
+            if saldo == 0:
+                activa = False
+                print("Cuenta cerrada")
+            else:
+                print("Tienes que vaciar el saldo primero")
+        else:
+            print("Ya está cerrada")
+            
+    elif op == "abrir cuenta":
+        if not activa:
+            activa = True
+            saldo = 0
+            print("Cuenta abierta de nuevo con 0 €")
+        else:
+            print("Ya está abierta")
